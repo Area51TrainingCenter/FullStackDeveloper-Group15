@@ -1,0 +1,14 @@
+<p>registro works!</p>
+<!-- <input type="text" [ngModel]="nombre" (ngModelChange)="nombre=$event"> -->
+<input type="text" [(ngModel)]="nombre">
+<br>
+<p>{{nombre}}</p>
+<form #formulario="ngForm">
+	<input type="text" placeholder="Nombre" ngModel name="nombre" required>
+	<br>
+	<input type="text" placeholder="Correo" ngModel name="correo" required email>
+	<br>
+	<input type="password" placeholder="Contraseña" ngModel name="contrasena" required>
+	<br>
+	<button type="button" (click)="registrar()" [disabled]="!formularioRegistro.valid">Registrar</button>
+</form>
