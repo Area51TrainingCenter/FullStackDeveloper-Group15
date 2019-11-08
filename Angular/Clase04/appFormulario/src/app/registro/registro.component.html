@@ -1,14 +1,21 @@
 <p>registro works!</p>
 <!-- <input type="text" [ngModel]="nombre" (ngModelChange)="nombre=$event"> -->
-<input type="text" [(ngModel)]="nombre">
+<!-- <input type="text" [(ngModel)]="nombre"> -->
 <br>
 <p>{{nombre}}</p>
 <form #formulario="ngForm">
-	<input type="text" placeholder="Nombre" ngModel name="nombre" required>
+	<input type="text" placeholder="Nombre" ngModel name="nombre" required #nombre="ngModel">
+	<span *ngIf="nombre.invalid && nombre.touched">El nombre es requerido</span>
 	<br>
-	<input type="text" placeholder="Correo" ngModel name="correo" required email>
+	<input type="text" placeholder="Correo" ngModel name="correo" required email #correo="ngModel">
+	<span *ngIf="correo.invalid && correo.touched && correo.errors.required">El correo es requerido</span>
+	<span *ngIf="correo.invalid && correo.touched && correo.errors.email">Debe tener formato de correo</span>
 	<br>
 	<input type="password" placeholder="Contraseña" ngModel name="contrasena" required>
 	<br>
 	<button type="button" (click)="registrar()" [disabled]="!formularioRegistro.valid">Registrar</button>
+	<br>
+	<button type="button" (click)="cargarTodo()">Cargar Data Total</button>
+	<br>
+	<button type="button" (click)="cargarParcial()">Cargar Data Parcial</button>
 </form>
