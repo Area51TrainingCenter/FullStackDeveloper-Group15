@@ -10,6 +10,8 @@
 				<span *ngIf="grupo.get('correo').hasError('required') && grupo.get('correo').touched">El correo es obligatorio</span>
 				<span *ngIf="grupo.get('correo').hasError('email') && grupo.get('correo').touched">Debe tener formato de correo</span>
 				<span *ngIf="grupo.get('correo').hasError('correoGratuito') && grupo.get('correo').touched">No se aceptan correos gratuitos</span>
+				<span *ngIf="grupo.get('correo').hasError('noCorreoEmpresarial') && grupo.get('correo').touched">Solo correos de area51.pe</span>
+
 			</div>
 			<div class="form-group">
 				<input type="password" class="form-control" placeholder="Contraseña" name="contrasena" formControlName="contrasena">

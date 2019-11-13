@@ -15,7 +15,7 @@ export class RegistroComponent implements OnInit {
 	constructor() {
 		this.grupo = new FormGroup({
 			nombre: new FormControl("Sergio", Validators.required),
-			correo: new FormControl("correo5@correo.com", [Validators.required, Validators.email, this.validarCorreoGratuito.bind(this)]),
+			correo: new FormControl("correo5@correo.com", [Validators.required, Validators.email, this.validarCorreoGratuito.bind(this), this.validarCorreoEmpresarial]),
 			contrasena: new FormControl("1234", Validators.required),
 			confirmacion: new FormControl("1234", Validators.required)
 		})
@@ -36,6 +36,16 @@ export class RegistroComponent implements OnInit {
 		if (this.dominiosGratuitos.indexOf(dominio) > -1) {
 			return { "correoGratuito": true }
 		}
+
+		return null
+	}
+
+	validarCorreoEmpresarial(fc: FormControl): { [s: string]: boolean } {
+		if (!fc || !fc.value || fc.value.split("@").length == 1) return null
+
+		const dominio = fc.value.split("@")[1].toLowerCase()
+
+		if (dominio != "area51.pe") return { noCorreoEmpresarial: true }
 
 		return null
 	}
