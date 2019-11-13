@@ -24,8 +24,14 @@ export class RegistroComponent implements OnInit {
 	validarCorreoGratuito(fc: FormControl): { [s: string]: boolean } {
 		if (!fc || !fc.value) return null
 
+		if (fc.value.trim() == "") return null
+
 		const valor = fc.value
-		const dominio = valor.split("@")[1].toLowerCase()
+		const partes = valor.split("@")
+
+		if (partes.length == 1) return null
+
+		const dominio = partes[1].toLowerCase()
 
 		if (this.dominiosGratuitos.indexOf(dominio) > -1) {
 			return { "correoGratuito": true }
