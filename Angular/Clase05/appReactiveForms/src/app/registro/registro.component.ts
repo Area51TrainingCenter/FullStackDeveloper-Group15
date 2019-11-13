@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormControl, FormGroup, ValidatorFn, Validators } from "@angular/forms";
 
 @Component({
 	selector: 'app-registro',
@@ -15,7 +15,7 @@ export class RegistroComponent implements OnInit {
 	constructor() {
 		this.grupo = new FormGroup({
 			nombre: new FormControl("Sergio", Validators.required),
-			correo: new FormControl("correo5@correo.com", [Validators.required, Validators.email, this.validarCorreoGratuito.bind(this), this.validarCorreoEmpresarial]),
+			correo: new FormControl("correo5@correo.com", [Validators.required, Validators.email, this.validarCorreoGratuito.bind(this), this.soloCorreoEmpresarial("area51.pe")]),
 			contrasena: new FormControl("1234", Validators.required),
 			confirmacion: new FormControl("1234", Validators.required)
 		})
@@ -40,15 +40,21 @@ export class RegistroComponent implements OnInit {
 		return null
 	}
 
-	validarCorreoEmpresarial(fc: FormControl): { [s: string]: boolean } {
-		if (!fc || !fc.value || fc.value.split("@").length == 1) return null
+	soloCorreoEmpresarial(dominioValido: string): ValidatorFn {
+		const validarCorreoEmpresarial = (fc: FormControl): { [s: string]: boolean } => {
+			if (!fc || !fc.value || fc.value.split("@").length == 1) return null
 
-		const dominio = fc.value.split("@")[1].toLowerCase()
+			const dominio = fc.value.split("@")[1].toLowerCase()
 
-		if (dominio != "area51.pe") return { noCorreoEmpresarial: true }
+			if (dominio != dominioValido) return { noCorreoEmpresarial: true }
 
-		return null
+			return null
+		}
+
+		return validarCorreoEmpresarial
 	}
+
+
 
 	cargarData() {
 		this.grupo.setValue({
