@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="row justify-content-center pt-4">
+		<form class="col-8" [formGroup]="grupo" (ngSubmit)="registrar()">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Nombre" name="nombre" formControlName="nombre">
+				<span *ngIf="grupo.get('nombre').hasError('required') && grupo.get('nombre').touched">El nombre es obligatorio</span>
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Correo" name="correo" formControlName="correo">
+				<span *ngIf="grupo.get('correo').hasError('required') && grupo.get('correo').touched">El correo es obligatorio</span>
+				<span *ngIf="grupo.get('correo').hasError('email') && grupo.get('correo').touched">Debe tener formato de correo</span>
+				<span *ngIf="grupo.get('correo').hasError('correoGratuito') && grupo.get('correo').touched">No se aceptan correos gratuitos</span>
+				<span *ngIf="grupo.get('correo').hasError('noCorreoEmpresarial') && grupo.get('correo').touched">Solo correos de area51.pe</span>
+
+			</div>
+			<div class="form-group">
+				<input type="password" class="form-control" placeholder="Contraseña" name="contrasena" formControlName="contrasena">
+				<span *ngIf="grupo.get('contrasena').hasError('required') && grupo.get('contrasena').touched">La contraseña es obligatoria</span>
+			</div>
+			<div class="form-group">
+				<input type="password" class="form-control" placeholder="Confirmación de contraseña" name="confirmacion" formControlName="confirmacion">
+				<span *ngIf="grupo.get('confirmacion').hasError('required') && grupo.get('confirmacion').touched">La confirmación es
+					obligatoria
+				</span>
+			</div>
+			<div class="d-flex justify-content-center">
+				<button [disabled]="grupo.invalid" class="btn btn-success">Registrar</button> <button class="btn btn-warning" type="button"
+				 (click)="cargarData()">Cargar Data
+				</button>
+				<button type="button" class="btn btn-primary" (click)="cargarDataParcial()">Cargar Data Parcial</button>
+				<button type="button" class="btn btn-secondary" (click)="resetear()">Resetear</button>
+			</div>
+		</form>
+	</div>
+</div>
