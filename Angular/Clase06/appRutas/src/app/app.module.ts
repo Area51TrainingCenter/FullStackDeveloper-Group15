@@ -6,6 +6,7 @@ import { EdicionComponent } from './edicion/edicion.component';
 import { HomeComponent } from './home/home.component';
 import { ListadoComponent } from './listado/listado.component';
 import { LoginComponent } from './login/login.component';
+import { NoEncontradoComponent } from './no-encontrado/no-encontrado.component';
 import { NuevoComponent } from './nuevo/nuevo.component';
 
 // http://midominio.com
@@ -16,7 +17,9 @@ const rutas: Routes = [
 	{ path: "home", component: HomeComponent },
 	{ path: "listado", component: ListadoComponent },
 	{ path: "edicion", component: EdicionComponent },
-	{ path: "nuevo", component: NuevoComponent }
+	{ path: "nuevo", component: NuevoComponent },
+	/* { path: "**", component: NoEncontradoComponent } */
+	{ path: "**", redirectTo: "home" }
 ]
 
 
@@ -27,7 +30,8 @@ const rutas: Routes = [
 		HomeComponent,
 		ListadoComponent,
 		EdicionComponent,
-		NuevoComponent
+		NuevoComponent,
+		NoEncontradoComponent
 	],
 	imports: [
 		BrowserModule,
