@@ -1,16 +1,39 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from "@angular/router";
 import { AppComponent } from './app.component';
+import { EdicionComponent } from './edicion/edicion.component';
+import { HomeComponent } from './home/home.component';
+import { ListadoComponent } from './listado/listado.component';
+import { LoginComponent } from './login/login.component';
+import { NuevoComponent } from './nuevo/nuevo.component';
+
+// http://midominio.com
+// http://midominio.com/home
+
+const rutas: Routes = [
+	{ path: "", component: LoginComponent },
+	{ path: "home", component: HomeComponent },
+	{ path: "listado", component: ListadoComponent },
+	{ path: "edicion", component: EdicionComponent },
+	{ path: "nuevo", component: NuevoComponent }
+]
+
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		LoginComponent,
+		HomeComponent,
+		ListadoComponent,
+		EdicionComponent,
+		NuevoComponent
+	],
+	imports: [
+		BrowserModule,
+		RouterModule.forRoot(rutas)
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

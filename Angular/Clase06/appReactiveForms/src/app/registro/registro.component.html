@@ -22,6 +22,9 @@
 				<span *ngIf="grupo.get('confirmacion').hasError('required') && grupo.get('confirmacion').touched">La confirmación es
 					obligatoria
 				</span>
+				<span *ngIf="grupo.get('confirmacion').hasError('contrasenaNoCoincide') && grupo.get('confirmacion').touched">La contraseña
+					y la confirmación no coinciden
+				</span>
 			</div>
 			<div class="d-flex justify-content-center">
 				<button [disabled]="grupo.invalid" class="btn btn-success">Registrar</button> <button class="btn btn-warning" type="button"
