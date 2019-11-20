@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-edicion',
@@ -12,8 +12,14 @@ export class EdicionComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.id = this.activatedRoute.snapshot.paramMap.get("id")
-    console.log(this.id)
+    // this.id = this.activatedRoute.snapshot.paramMap.get("id")
+
+    this.activatedRoute.paramMap.subscribe((info:ParamMap)=>{
+      // console.log(info.get("id"))
+      this.id = info.get("id")
+    })
+
+    // console.log(this.id)
   }
 
   nuevoRegistro() {

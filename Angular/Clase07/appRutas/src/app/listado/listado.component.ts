@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listado',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListadoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  filtrarMarca(){
+    this.router.navigate(["/cliente", "listado"], {queryParams: {marca: 'esika'}, queryParamsHandling: "merge", preserveFragment: true})
   }
 
 }
