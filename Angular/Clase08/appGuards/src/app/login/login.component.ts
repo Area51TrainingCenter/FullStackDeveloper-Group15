@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  ingresar() {
+  login() {
     this.router.navigate(["/home"])
   }
 

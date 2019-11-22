@@ -1,1 +1,12 @@
-<p>nuevo-usuario works!</p>
+<div class="row">
+	<form [formGroup]="grupo" class="col-12">
+		<h3>Nuevo</h3>
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Nombre" formControlName="nombre"></div>
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Apellido" formControlName="apellido"></div>
+				<div class="d-flex justify-content-center">
+					<button class="btn btn-success" (click)="grabar()" [disabled]="grupo.invalid">Grabar</button>
+				</div>
+	</form>
+</div>

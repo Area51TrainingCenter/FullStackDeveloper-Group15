@@ -1,1 +1,17 @@
-<p>listado-usuarios works!</p>
+<div class="row">
+	<div class="col-6">
+		<button class="btn btn-success" (click)="nuevo()">Nuevo</button>
+		<button class="btn btn-warning" (click)="edicion()">Edición</button>
+		<table class="table table-hover table-bordered">
+			<thead class="thead-dark">
+				<tr>
+					<th>Nombre</th>
+					<th>Apellido</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+	<div class="col-6">
+		<router-outlet></router-outlet>
+	</div>
+</div>
