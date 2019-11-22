@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { UsuariosService } from '../usuarios.service';
 
 @Component({
   selector: 'app-edicion-usuario',
@@ -11,8 +12,9 @@ export class EdicionUsuarioComponent implements OnInit {
 
   grupo: FormGroup
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private usuariosService: UsuariosService) {
     this.grupo = new FormGroup({
+      id: new FormControl(),
       nombre: new FormControl(null, Validators.required),
       apellido: new FormControl(null, Validators.required)
     })
@@ -23,6 +25,13 @@ export class EdicionUsuarioComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.activatedRoute.paramMap.subscribe((respuesta: any) => {
+      const id = respuesta.params.id
+
+      const usuario = this.usuariosService.editar(id)
+      if (usuario) this.grupo.setValue(usuario)
+    })
+
 
   }
 

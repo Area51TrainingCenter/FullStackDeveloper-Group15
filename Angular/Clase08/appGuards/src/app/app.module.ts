@@ -16,7 +16,7 @@ const rutas: Routes = [
   { path: "home", component: HomeComponent },
   {
     path: "usuarios", component: ListadoUsuariosComponent, children: [
-      { path: "edicion", component: EdicionUsuarioComponent },
+      { path: "edicion/:id", component: EdicionUsuarioComponent },
       { path: "nuevo", component: NuevoUsuarioComponent }
     ]
   }
