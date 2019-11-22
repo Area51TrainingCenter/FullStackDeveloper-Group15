@@ -1,0 +1,16 @@
+<div class="row justify-content-center">
+	<div class="card col-6 pt-3 pb-3">
+		<form [formGroup]="grupo">
+			<h1>Login</h1>
+			<div class="form-group">
+				<input type="text" formControlName="correo" placeholder="Ingrese su correo" class="form-control">
+      </div>
+				<div class="form-group">
+					<input type="password" formControlName="contrasena" placeholder="Ingrese su contraseña" class="form-control">
+      </div>
+					<div class="d-flex justify-content-center">
+						<button class="btn btn-primary" [disabled]="grupo.invalid" (click)="login()">Ingresar</button>
+					</div>
+		</form>
+	</div>
+</div>
