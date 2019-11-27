@@ -1,0 +1,10 @@
+<ul>
+	<li><a routerLink="login">Login</a></li>
+	<li><a routerLink="home">Home</a></li>
+	<li><a routerLink="productos">Productos</a></li>
+	<li><a routerLink="productos/edicion">Edición</a></li>
+	<li><a [routerLink]="['productos','nuevo']">Nuevo</a></li>
+</ul>
+<button (click)="logout()">Logout</button>
+
+<router-outlet></router-outlet>
