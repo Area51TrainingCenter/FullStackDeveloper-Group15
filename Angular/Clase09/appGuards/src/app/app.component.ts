@@ -7,11 +7,20 @@ import { AuthService } from './services/auth.service';
 	styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	title = 'appGuards';
+	userLogged: boolean = false
 
-	constructor(private auth: AuthService) { }
+	constructor(private auth: AuthService) {
+
+	}
+
+	ngOnInit() {
+		this.auth.onStateChanges.subscribe(status => this.userLogged = status)
+		this.userLogged = this.auth.isLoggedUser()
+
+	}
 
 	logout() {
 		this.auth.logout()
+		this.auth.onStateChanges.emit(false)
 	}
 }

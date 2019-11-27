@@ -12,6 +12,7 @@ export class AuthenticationGuard implements CanActivate, CanActivateChild {
 	}
 
 	canActivateChild(): boolean {
-		return this.auth.isLoggedUser()
+		// return this.auth.isLoggedUser()
+		return this.canActivate()
 	}
 }
