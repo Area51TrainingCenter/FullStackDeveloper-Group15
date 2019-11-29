@@ -1,0 +1,10 @@
+<ul>
+	<li *ngIf="!userLogged"><a routerLink="login">Login</a></li>
+	<li *ngIf="userLogged"><a routerLink="home">Home</a></li>
+	<li *ngIf="userLogged"><a routerLink="productos">Productos</a></li>
+	<li *ngIf="userLogged"><a routerLink="productos/edicion">Edición</a></li>
+	<li *ngIf="userLogged"><a [routerLink]="['productos','nuevo']">Nuevo</a></li>
+</ul>
+<button (click)="logout()" *ngIf="userLogged">Logout</button>
+
+<router-outlet></router-outlet>
