@@ -10,9 +10,11 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NuevoComponent } from './nuevo/nuevo.component';
 import { ProductosComponent } from './productos/productos.component';
+import { RegistroComponent } from './registro/registro.component';
 
 const routes: Routes = [
 	{ path: "login", component: LoginComponent },
+	{ path: "registro", component: RegistroComponent },
 	{ path: "home", component: HomeComponent, canActivate: [AuthenticationGuard] },
 	{
 		path: "productos", component: ProductosComponent, canActivateChild: [AuthenticationGuard], children: [
@@ -30,7 +32,8 @@ const routes: Routes = [
 		HomeComponent,
 		ProductosComponent,
 		EdicionComponent,
-		NuevoComponent
+		NuevoComponent,
+		RegistroComponent
 	],
 	imports: [
 		BrowserModule,

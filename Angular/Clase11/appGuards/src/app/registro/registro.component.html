@@ -1,0 +1,7 @@
+<form [formGroup]="grupo">
+	<input type="text" placeholder="Nombre" name="nombre" formControlName="nombre">
+	<br>
+	<input type="text" placeholder="Correo" name="correo" formControlName="correo"><br>
+	<input type="text" placeholder="Contraseña" name="contrasena" formControlName="contrasena"><br>
+	<button (click)="registro()" type="button" [disabled]="grupo.invalid">Registrarse</button>
+</form>
