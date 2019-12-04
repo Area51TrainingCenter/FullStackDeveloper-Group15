@@ -45,11 +45,11 @@ export class AuthService {
 
 	insert(usuario: Usuario): Observable<{ status: number, message: string }> {
 		return this.http.post<{ status: number, message: string }>("http://clase.tibajodemanda.com/usuario", usuario)
-		/* .subscribe(
-			data => this.router.navigate(["login"]),
-			error => console.log(error)
-		) */
+	}
 
+	getToken(): string {
+		const data = JSON.parse(sessionStorage.getItem("loggedUser"))
 
+		return data.result.token
 	}
 }
