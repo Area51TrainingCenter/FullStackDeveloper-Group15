@@ -14,11 +14,18 @@ export class AuthService {
 
 	constructor(private router: Router, private http: HttpClient) { }
 
-	login() {
-		this.router.navigate(["home"])
-		this.loggedUser = true
-		sessionStorage.setItem("loggedUser", "1")
-		this.onStateChanges.emit("true")
+	login(usuario: Usuario) {
+		this.http.post("http://clase.tibajodemanda.com/usuario/login", usuario)
+			.subscribe(
+				data => {
+					console.log(data)
+					this.router.navigate(["home"])
+					this.loggedUser = true
+					sessionStorage.setItem("loggedUser", JSON.stringify(data))
+					this.onStateChanges.emit("true")
+				},
+				error => console.log(error)
+			)
 	}
 
 	logout() {
