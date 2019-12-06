@@ -1,1 +1,5 @@
-<p>nuevo works!</p>
+<form [formGroup]="grupo">
+	<input type="text" name="nombre" placeholder="Nombre" formControlName="nombre"><br>
+	<input type="text" name="descripcion" placeholder="Descripción" formControlName="descripcion"><br>
+	<button (click)="agregar()" [disabled]="grupo.invalid">Nuevo producto</button>
+</form>

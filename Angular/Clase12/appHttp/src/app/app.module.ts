@@ -1,4 +1,4 @@
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { NuevoComponent } from './nuevo/nuevo.component';
 import { ProductosComponent } from './productos/productos.component';
 import { RegistroComponent } from './registro/registro.component';
+import { AppInterceptor } from './services/app.interceptor';
 
 const routes: Routes = [
 	{ path: "login", component: LoginComponent },
@@ -42,7 +43,9 @@ const routes: Routes = [
 		ReactiveFormsModule,
 		HttpClientModule
 	],
-	providers: [AuthenticationGuard],
+	providers: [AuthenticationGuard, {
+		provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true
+	}],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

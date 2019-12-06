@@ -1,2 +1,14 @@
-<p>productos works!</p>
+<!-- <button>Agregar producto</button> -->
+<a routerLink="/productos/nuevo">Agregar producto</a>
+<table>
+	<tr>
+		<th>Nombre</th>
+		<th>Descripción</th>
+	</tr>
+	<tr *ngFor="let producto of productos">
+		<td>{{producto.nombre}}</td>
+		<td>{{producto.descripcion}}</td>
+	</tr>
+</table>
+
 <router-outlet></router-outlet>
