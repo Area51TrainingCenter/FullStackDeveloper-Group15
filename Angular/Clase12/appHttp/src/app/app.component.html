@@ -1,0 +1,17 @@
+<ul>
+	<li *ngIf="!userLogged"><a routerLink="login">Login</a></li>
+	<li *ngIf="!userLogged"><a routerLink="registro">Registro</a></li>
+	<li *ngIf="userLogged"><a routerLink="home">Home</a></li>
+	<li *ngIf="userLogged"><a routerLink="productos">Productos</a></li>
+	<li *ngIf="userLogged"><a routerLink="productos/edicion">Edición</a></li>
+	<li *ngIf="userLogged"><a [routerLink]="['productos','nuevo']">Nuevo</a></li>
+</ul>
+<button (click)="logout()" *ngIf="userLogged">Logout</button>
+<table>
+	<tr *ngFor="let item of datosRecibidos">
+		<td>{{item.id}}</td>
+		<td>{{item.title}}</td>
+	</tr>
+</table>
+
+<router-outlet></router-outlet>
