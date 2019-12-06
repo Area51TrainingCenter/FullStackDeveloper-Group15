@@ -2,10 +2,12 @@
 <a routerLink="/productos/nuevo">Agregar producto</a>
 <table>
 	<tr>
+		<th>ID</th>
 		<th>Nombre</th>
 		<th>Descripción</th>
 	</tr>
 	<tr *ngFor="let producto of productos">
+		<td>{{producto._id}}</td>
 		<td>{{producto.nombre}}</td>
 		<td>{{producto.descripcion}}</td>
 	</tr>

@@ -29,4 +29,8 @@ export class ProductService {
 
 		return this.http.post("http://clase.tibajodemanda.com/producto", producto)
 	}
+
+	update(_id, producto: Producto) {
+		return this.http.post("http://clase.tibajodemanda.com/producto" + _id, producto)
+	}
 }
