@@ -4,15 +4,10 @@ import { EdicionEditorialesComponent } from './edicion-editoriales/edicion-edito
 import { ListadoEditorialesComponent } from './listado-editoriales/listado-editoriales.component';
 import { NuevoEditorialesComponent } from './nuevo-editoriales/nuevo-editoriales.component';
 
-
 const routes: Routes = [
-	{
-		path: "editoriales", children: [
-			{ path: "listado", component: ListadoEditorialesComponent },
-			{ path: "nuevo", component: NuevoEditorialesComponent },
-			{ path: "edicion", component: EdicionEditorialesComponent }
-		]
-	}
+	{ path: "", component: ListadoEditorialesComponent },
+	{ path: "nuevo", component: NuevoEditorialesComponent },
+	{ path: "edicion", component: EdicionEditorialesComponent }
 ];
 
 @NgModule({
