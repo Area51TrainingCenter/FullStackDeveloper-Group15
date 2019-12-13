@@ -21,4 +21,14 @@ export class AppComponent {
 
 	textoABuscar: string = ""
 
+	seleccion: boolean = false
+
+	sobre(respuesta) {
+		this.seleccion = respuesta
+	}
+
+	mostrarImagen(archivos: FileList) {
+		console.log(archivos)
+	}
+
 }

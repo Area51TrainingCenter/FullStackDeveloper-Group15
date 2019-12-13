@@ -17,3 +17,7 @@
 		<td>{{libro.anno}}</td>
 	</tr>
 </table>
+
+<p hover [colorNuevo]="'blue'" fondoNuevo="pink">Texto de color rojo</p>
+<article appSubirImagen (onHover)="sobre($event)" [ngClass]="{over: seleccion}" (onSalida)="mostrarImagen($event)">
+</article>

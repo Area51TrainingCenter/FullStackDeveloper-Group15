@@ -4,8 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BusquedaPipe } from './busqueda.pipe';
 import { CapitalPipe } from './capital.pipe';
+import { HoverDirective } from './hover.directive';
 import { ReducidorPipe } from './pipes/reducidor.pipe';
 import { ReducidorPalabrasPipe } from './reducidor-palabras.pipe';
+import { SubirImagenDirective } from './subir-imagen.directive';
 
 @NgModule({
 	declarations: [
@@ -13,7 +15,9 @@ import { ReducidorPalabrasPipe } from './reducidor-palabras.pipe';
 		CapitalPipe,
 		ReducidorPipe,
 		ReducidorPalabrasPipe,
-		BusquedaPipe
+		BusquedaPipe,
+		HoverDirective,
+		SubirImagenDirective
 	],
 	imports: [
 		BrowserModule,
