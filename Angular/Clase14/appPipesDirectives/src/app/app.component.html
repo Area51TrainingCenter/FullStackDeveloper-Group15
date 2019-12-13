@@ -10,7 +10,7 @@
 		<th>Sinópsis</th>
 		<th>Año</th>
 	</tr>
-	<tr *ngFor="let libro of libros | busqueda:textoABuscar">
+	<tr *ngFor="let libro of libros | busqueda:textoABuscar:'autor'">
 		<td>{{libro.titulo | capital}}</td>
 		<td>{{libro.autor}}</td>
 		<td>{{libro.sinopsis | reducidorPalabras:8}}</td>
