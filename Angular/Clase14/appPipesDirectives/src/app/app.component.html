@@ -2,7 +2,7 @@
 <div>{{curso | uppercase}}</div>
 <div>{{usuario | json}}</div>
 <div>{{precio | currency:"PEN":"symbol":"3.2-2"}}</div>
-
+<input type="text" [(ngModel)]="textoABuscar">
 <table>
 	<tr>
 		<th>Título</th>
@@ -10,10 +10,10 @@
 		<th>Sinópsis</th>
 		<th>Año</th>
 	</tr>
-	<tr *ngFor="let libro of libros">
+	<tr *ngFor="let libro of libros | busqueda:textoABuscar">
 		<td>{{libro.titulo | capital}}</td>
 		<td>{{libro.autor}}</td>
-		<td>{{libro.sinopsis | reducidor:50}}</td>
+		<td>{{libro.sinopsis | reducidorPalabras:8}}</td>
 		<td>{{libro.anno}}</td>
 	</tr>
 </table>

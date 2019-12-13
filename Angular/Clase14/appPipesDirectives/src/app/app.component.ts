@@ -19,4 +19,6 @@ export class AppComponent {
 		{ titulo: "El Caballero Carmelo", autor: "Abraham Valdelomar", sinopsis: "Trata de la historia de un gallo viejo llamado 'Carmelo' el cual es obligado a pelear con un gallo más joven llamado 'el ají seco'", anno: 1950 }
 	]
 
+	textoABuscar: string = ""
+
 }
