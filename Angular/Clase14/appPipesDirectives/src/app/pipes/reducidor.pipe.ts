@@ -7,7 +7,7 @@ export class ReducidorPipe implements PipeTransform {
 
 	transform(value: any, cantidadLetras: number): any {
 		if (value.length > cantidadLetras) {
-			return value.substring(1, cantidadLetras)
+			return value.substring(0, cantidadLetras)
 		}
 		return value;
 	}
