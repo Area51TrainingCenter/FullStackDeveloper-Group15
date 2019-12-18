@@ -1,0 +1,9 @@
+article {
+	width: 400px;
+	height: 400px;
+	border: 1px dashed blue
+}
+
+article.over {
+	border: 1px solid red
+}

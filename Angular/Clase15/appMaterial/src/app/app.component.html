@@ -1,0 +1,35 @@
+<mat-sidenav-container>
+  <mat-sidenav #menu_movil>
+    <mat-nav-list>
+      <a mat-list-item routerLink="">
+        <mat-icon>lock</mat-icon>
+        Menu 1</a>
+      <a mat-list-item routerLink="">
+        <mat-icon>face</mat-icon>
+        Menu 2</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" fxLayout fxLayoutAlign="space-between center">
+      <div fxLayout fxLayoutAlign="start center">
+        <button mat-icon-button (click)="menu_movil.toggle()" fxHide.gt-xs>
+          <mat-icon>menu</mat-icon>
+        </button>
+        <h2>Sistema</h2>
+      </div>
+
+        <ul fxHide.xs>
+          <li>
+            <a routerLink="/" class="itemMenu">Menu 1</a>
+          </li>
+          <li>
+            <a routerLink="/" class="itemMenu">Menu 2</a>
+          </li>
+        </ul>
+
+        
+
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

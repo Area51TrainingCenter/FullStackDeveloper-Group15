@@ -1,0 +1,37 @@
+mat-sidenav-container,
+mat-sidenav,
+mat-sidenav-content {
+    height: 100vh;
+}
+
+mat-sidenav {
+    width: 320px;
+}
+
+ul {
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+
+li {
+    display: inline-block;
+}
+
+a {
+    display: block;
+    padding: 5px 10px;
+}
+
+a.itemMenu,
+a.itemMenu:link,
+a.itemMenu:active,
+a.itemMenu:visited {
+    text-decoration: none;
+    color: rgba(255, 255, 255, .3)
+}
+
+a.itemMenu:hover {
+    text-decoration: underline;
+    color:white
+}
