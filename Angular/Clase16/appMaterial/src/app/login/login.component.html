@@ -1,0 +1,30 @@
+<div fxLayout fxLayoutAlign="center center">
+	<mat-card fxFlex="500px" fxFlex.xs="320px" class="mat-elevation-z10">
+		<mat-card-header>
+			<h3>Login</h3>
+		</mat-card-header>
+		<mat-card-content>
+			<form fxLayout="column" [formGroup]="grupo">
+				<mat-form-field appearance="outline">
+					<input type="text" placeholder="Correo" name="correo" matInput formControlName="correo" required>
+					<mat-error *ngIf="grupo.get('correo').hasError('required')">El correo es necesario</mat-error>
+					<mat-error *ngIf="grupo.get('correo').hasError('email')">Debe tener el formato de un correo
+					</mat-error>
+				</mat-form-field>
+				<mat-form-field>
+					<input type="password" placeholder="Contraseña" name="contrasena" matInput
+						formControlName="contrasena" required>
+					<mat-error>La contraseña es necesaria</mat-error>
+				</mat-form-field>
+				<!-- <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Fecha de ingreso">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field> -->
+				<article fxLayout fxLayoutAlign="end">
+					<button mat-flat-button color="primary" [disabled]="grupo.invalid" (click)="login()">Ingresar</button>
+				</article>
+			</form>
+		</mat-card-content>
+	</mat-card>
+</div>
