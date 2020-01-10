@@ -1,0 +1,35 @@
+{
+  "name": "fs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "qa": "ts-node src/server.ts",
+    "build": "tsc",
+    "start:prod": "node dist/server.js",
+    "start:dev": "tsc-watch -p tsconfig.build.json --onSuccess \"node dist/server.js\"",
+    "prod": "npm run build && npm run start:prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Area51TrainingCenter/FullStackDeveloper-Group15.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Area51TrainingCenter/FullStackDeveloper-Group15/issues"
+  },
+  "homepage": "https://github.com/Area51TrainingCenter/FullStackDeveloper-Group15#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.2",
+    "@types/node": "^13.1.6",
+    "ts-node": "^8.5.4",
+    "tsc-watch": "^4.0.0",
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
