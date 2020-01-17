@@ -6,7 +6,7 @@
   "scripts": {
     "qa": "ts-node src/server.ts",
     "build": "tsc",
-    "start:prod": "node dist/server.js",
+    "start:prod": "cross-env NODE_ENV=production node dist/server.js",
     "start:dev": "tsc-watch -p tsconfig.build.json --onSuccess \"node dist/server.js\"",
     "prod": "npm run build && npm run start:prod"
   },
@@ -32,7 +32,9 @@
   "dependencies": {
     "@hapi/joi": "^17.0.2",
     "body-parser": "^1.19.0",
+    "cross-env": "^6.0.3",
     "express": "^4.17.1",
-    "mongoose": "^5.8.7"
+    "mongoose": "^5.8.7",
+    "yenv": "^2.1.1"
   }
 }
