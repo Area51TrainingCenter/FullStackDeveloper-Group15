@@ -10,6 +10,9 @@ class Controller extends GenericoController {
 
     async insertar(req, res) {
         const datos = req.body
+        datos.foto = req.file.filename
+
+        // console.log("file en insertar", req.file)
 
         const cifradoHash = await bcrypt.genSalt()
         const hash = await bcrypt.hash(datos.password.trim(), cifradoHash)
@@ -24,16 +27,16 @@ class Controller extends GenericoController {
 
     async login(req, res) {
         const datos = req.body
-        
-        const usuario:any = await modeloUsuario.findOne({correo: datos.correo.toLowerCase()})
 
-        if(usuario) {
+        const usuario: any = await modeloUsuario.findOne({ correo: datos.correo.toLowerCase() })
+
+        if (usuario) {
             const existe = await bcrypt.compare(datos.password, usuario.password)
 
-            if(existe) {
+            if (existe) {
                 const token = crearToken(usuario._id, usuario.roles)
 
-                res.json({token})
+                res.json({ token })
             } else {
                 res.send("Password incorrecto")
             }

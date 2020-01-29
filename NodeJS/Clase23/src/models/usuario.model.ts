@@ -19,8 +19,9 @@ const esquema = new mongoose.Schema({
         required: true
     },
     roles: [
-        {type: String}
-    ]
+        { type: String }
+    ],
+    foto: String
 })
 
 const modelo = mongoose.model("Usuario", esquema)

@@ -26,9 +26,9 @@ const errorsHandler = {
     general: (error, req, res, next) => {
         if (process.env.NODE_ENV === "development") {
             return res
-                .status(error.status)
+                .status(500)
                 .json({
-                    status: error.status,
+                    status: 500,
                     message: error.message,
                     stack: error.stack
                 })
